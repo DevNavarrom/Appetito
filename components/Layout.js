@@ -18,7 +18,7 @@ export default class Layout extends React.Component {
             <style jsx>{`
                 header {
                     color: #fff;
-                    background: #CDDC39;
+                    background: #E83909;
                     padding: 15px;
                     text-align: center;
                 }

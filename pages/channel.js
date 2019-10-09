@@ -9,9 +9,15 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../components/Layout';
+import MainContent from '../components/MainContent';
 
 export default class extends React.Component {
     
+    constructor(props){
+        super(props)
+        this.state = { openPlato: null }
+
+    }
     static async getInitialProps({ query, res }) {
         try {
             let idChannel = query.id;
@@ -43,15 +49,26 @@ export default class extends React.Component {
         }
     }
 
+    openPodcast = (event, podcast) => {
+        event.preventDefault();
+        this.setState({
+            openPlato: podcast
+        });
+
+    }
+
     render(){
 
         const { channel, audioClips, series, statusCode } = this.props;
+        const { openPodcast } = this.state;
 
         if (statusCode !== 200 ) {
             return <Error statusCode = { statusCode } />
         }
 
-        return <Layout title={channel.title}>
+        return <MainContent title={channel.title}>
+
+            { openPlato && <div>Hay un plato abierto</div>}
 
             <Card className="card">
                     <CardActionArea>
@@ -116,7 +133,7 @@ export default class extends React.Component {
                 }
                 `}
                 </style>
-        </Layout>
+        </MainContent>
     }
 }
 

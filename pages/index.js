@@ -1,10 +1,12 @@
 
 import 'isomorphic-fetch';
 import Error from './_error';
-import Chip from '@material-ui/core/Chip';
-import ErrorIcon from '@material-ui/icons/Error';
-import Layout from '../components/Layout'
-import ChannelGrid from '../components/ChannelGrid';
+//import Chip from '@material-ui/core/Chip';
+//import ErrorIcon from '@material-ui/icons/Error';
+//import Layout from '../components/Layout'
+//import ChannelGrid from '../components/ChannelGrid';
+import MainContent from '../components/MainContent';
+import PlatoGrid from '../components/PlatoGrid';
 
 export default class extends React.Component {
 
@@ -51,11 +53,14 @@ export default class extends React.Component {
       return <Error statusCode = { statusCode } />
     }
 
-    return <Layout title="Appetito">
+    /* return <Layout title="Appetito">
 
       <ChannelGrid channels = { channels }/>
       
-    </Layout>
+    </Layout> */
+    return <MainContent title="Appetito">
+      <PlatoGrid channels = { channels }/>
+    </MainContent>
 
   }
 
