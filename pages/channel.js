@@ -10,6 +10,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Layout from '../components/Layout';
 import MainContent from '../components/MainContent';
+import Plato from '../components/PlatoList';
+import PlatoList from '../components/PlatoList';
+import PlatoModal from '../components/PlatoModal';
 
 export default class extends React.Component {
     
@@ -24,7 +27,7 @@ export default class extends React.Component {
 
             let [reqChannel, reqAudios, reqSeries] = await Promise.all([
                 fetch(`https://api.audioboom.com/channels/${idChannel}`),
-                fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips`),
+                fetch(`https://api.audioboom.com/channels/${idChannel}/audio_clips.mp3`),
                 fetch(`https://api.audioboom.com/channels/${idChannel}/child_channels`)
             ]);
 
@@ -49,7 +52,7 @@ export default class extends React.Component {
         }
     }
 
-    openPodcast = (event, podcast) => {
+    openPlato = (event, podcast) => {
         event.preventDefault();
         this.setState({
             openPlato: podcast
@@ -57,10 +60,17 @@ export default class extends React.Component {
 
     }
 
+    closePlato = (event) => {
+        event.preventDefault();
+        this.setState({
+            openPlato: null
+        });
+    }
+
     render(){
 
         const { channel, audioClips, series, statusCode } = this.props;
-        const { openPodcast } = this.state;
+        const { openPlato, closePlato } = this.state;
 
         if (statusCode !== 200 ) {
             return <Error statusCode = { statusCode } />
@@ -68,9 +78,12 @@ export default class extends React.Component {
 
         return <MainContent title={channel.title}>
 
-            { openPlato && <div>Hay un plato abierto</div>}
+            
 
             <Card className="card">
+            { openPlato && 
+                <div><PlatoModal clip={openPlato} onClose={closePlato}/></div>
+            }
                     <CardActionArea>
                       <CardMedia
                         component="img"
@@ -83,12 +96,10 @@ export default class extends React.Component {
                         <Typography gutterBottom variant="h5" component="h2">
                         {channel.title}
                         </Typography>
+
                         <p><strong>Audios</strong></p>
-                        {audioClips.map((clip) => (
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                {clip.title}
-                            </Typography>
-                        ))}
+                        <PlatoList platos = {audioClips} onClickPlato={this.openPlato}/>
+
                         <p><strong>Series</strong></p>
                         {series.map((serie) => (
                             <Typography variant="body2" color="textSecondary" component="p">
@@ -96,6 +107,7 @@ export default class extends React.Component {
                             </Typography>
                         ))}
                       </CardContent>
+                      
                     </CardActionArea>
                     
                   </Card>
