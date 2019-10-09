@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import {Link} from '../routes';
+import slug from '../helpers/slug';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -35,13 +36,13 @@ export default class ChannelGrid extends React.Component {
             </CardActionArea>
             <CardActions>
               
-              <Link href={`channel?id=${ channel.id }`} >
+              <Link route="channel" params={{slug: slug(channel.title), id: channel.id}} >
                 <Button size="small" color="primary">
                   Share
                 </Button>
               </Link>
 
-              <Link href={`channel?id=${ channel.id }`}>
+              <Link route="channel" params={{slug: slug(channel.title), id: channel.id}} prefetch>
                 <a color="primary">Learn More</a>
               </Link>
 
