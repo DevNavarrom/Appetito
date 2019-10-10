@@ -7,6 +7,7 @@ import Error from './_error';
 //import ChannelGrid from '../components/ChannelGrid';
 import MainContent from '../components/MainContent';
 import PlatoGrid from '../components/PlatoGrid';
+import LayoutContent from '../components/LayoutContent';
 
 export default class extends React.Component {
 
@@ -58,9 +59,12 @@ export default class extends React.Component {
       <ChannelGrid channels = { channels }/>
       
     </Layout> */
-    return <MainContent title="Appetito">
+    /* return <MainContent title="Appetito">
       <PlatoGrid channels = { channels }/>
-    </MainContent>
+    </MainContent> */
+    return <LayoutContent title="Appetito">
+      <PlatoGrid channels = { channels }/>
+    </LayoutContent>
 
   }
 
