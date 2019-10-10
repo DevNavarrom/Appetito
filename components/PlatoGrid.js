@@ -25,9 +25,8 @@ export default class PlatoGrid extends React.Component {
                             Appetito
                         </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Something short and leading about the collection below—its contents, the creator, etc.
-                            Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                            entirely.
+                            Prepara tu plato como desees desde tu casa, oficina o lugar de trabajo y nosotros te lo llevamos. 
+                            Puedes ver algunos ya preparados y pedir el de tu antojo. ¡Buen Appetito!
                         </Typography>
                         <div className="heroButtons">
                             <Grid container spacing={2} justify="center">
@@ -83,7 +82,7 @@ export default class PlatoGrid extends React.Component {
             <style jsx>
                 {`
                     heroContent: {
-                        backgroundColor: palette.background.default;
+                        backgroundColor: #0DBE98;
                         padding: spacing(8, 0, 6);
                       },
                       heroButtons: {
