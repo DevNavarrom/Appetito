@@ -70,7 +70,7 @@ export default class extends React.Component {
     render(){
 
         const { channel, audioClips, series, statusCode } = this.props;
-        const { openPlato, closePlato } = this.state;
+        const { openPlato } = this.state;
 
         if (statusCode !== 200 ) {
             return <Error statusCode = { statusCode } />
@@ -82,7 +82,7 @@ export default class extends React.Component {
 
             <Card className="card">
             { openPlato && 
-                <div><PlatoModal clip={openPlato} onClose={closePlato}/></div>
+                <div><PlatoModal clip={openPlato} onClose={this.closePlato}/></div>
             }
                     <CardActionArea>
                       <CardMedia
