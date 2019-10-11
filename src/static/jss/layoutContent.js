@@ -1,4 +1,4 @@
-import { container, title } from "../jss/appetito-style";
+import { container, title } from "./appetito-style";
 
 const landingPageStyle = {
   container: {

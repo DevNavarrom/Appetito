@@ -7,7 +7,7 @@ import Error from './_error';
 //import ChannelGrid from '../components/ChannelGrid';
 import MainContent from '../components/MainContent';
 import PlatoGrid from '../components/PlatoGrid';
-import LayoutContent from '../components/LayoutContent';
+import LayoutContent from '../components/LayoutContent/LayoutContent';
 
 export default class extends React.Component {
 

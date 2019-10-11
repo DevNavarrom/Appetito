@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {Link} from '../routes';
+import {Link} from '../../routes';
 import slug from '../helpers/slug';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -21,13 +21,13 @@ export default class PlatoGrid extends React.Component {
                 <CssBaseline />
                 <div className="heroContent">
                     <Container maxWidth="sm">
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                        {/* <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Appetito
                         </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
                             Prepara tu plato como desees desde tu casa, oficina o lugar de trabajo y nosotros te lo llevamos. 
                             Puedes ver algunos ya preparados y pedir el de tu antojo. ¡Buen Appetito!
-                        </Typography>
+                        </Typography> */}
                         <div className="heroButtons">
                             <Grid container spacing={2} justify="center">
                                 <Grid item>

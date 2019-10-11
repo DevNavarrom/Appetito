@@ -1,4 +1,4 @@
-import {Link} from '../routes';
+import {Link} from '../../routes';
 import slug from '../helpers/slug';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
