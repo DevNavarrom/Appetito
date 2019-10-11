@@ -11,7 +11,7 @@ import Header from "./Header/Header.js";
 //import Footer from "components/Footer/Footer.js";
 import GridItem from "./Grid/GridItem.js";
 import GridContainer from './Grid/GridContainer';
-
+import Parallax from './Parallax/Parallax';
 import styles from "../static/jss/layoutContent";
 
 const dashboardRoutes = [];
@@ -30,7 +30,7 @@ export default class LayoutContent extends React.Component {
 
     render(){
         const { children, title, ...rest } = this.props;
-        const classes = useStyles();
+        //const classes = useStyles();
         
         return (
             <div>
@@ -45,11 +45,12 @@ export default class LayoutContent extends React.Component {
         }}
         {...rest}
       />
-      <Parallax >
-        <div className={classes.container}>
+      {process.browser ? 
+        <Parallax filter image="https://source.unsplash.com/random">
+        <div className="container">
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Your Story Starts With Us.</h1>
+              <h1 className="title">Your Story Starts With Us.</h1>
               <h4>
                 Every landing page needs a small description after the big bold
                 title, that{"'"}s why we added this text here. Add here all the
@@ -61,8 +62,12 @@ export default class LayoutContent extends React.Component {
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
+      :
+      <div>Nada pasa jejeje</div>
+    }
+      
+      <div className="main mainRaised">
+        <div className="container">
             { children }
           {/* <ProductSection />
           <TeamSection />
@@ -72,5 +77,37 @@ export default class LayoutContent extends React.Component {
       {/* <Footer /> */}
     </div>
         );
+        <style jsx>{`
+          container: {
+            z-index: 12;
+            color: #FFFFFF;
+            ...container;
+          },
+          title: {
+            ...title;
+            display: inline-block;
+            position: relative;
+            margin-top: 30px;
+            min-height: 32px;
+            color: #FFFFFF;
+            text-decoration: none;
+          },
+          subtitle: {
+            font-size: 1.313rem;
+            max-width: 500px;
+            margin: 10px auto 0;
+          },
+          main: {
+            background: #FFFFFF;
+            position: relative;
+            z-index: 3;
+          },
+          mainRaised: {
+            margin: -60px 30px 0px;
+            border-radius: 6px;
+            box-shadow:
+              0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+          }
+        `}</style>
     }
 }

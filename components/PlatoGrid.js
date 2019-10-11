@@ -52,7 +52,7 @@ export default class PlatoGrid extends React.Component {
                                 <Card className="card">
                                     <CardMedia
                                         className="cardMedia"
-                                        image="../static/images/salad-color-2.png"
+                                        image="https://source.unsplash.com/random"
                                         title="Image title"
                                     />
                                     <CardContent className="cardContent">

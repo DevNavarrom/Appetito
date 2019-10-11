@@ -65,6 +65,7 @@ export default class extends React.Component {
     return <LayoutContent title="Appetito">
       <PlatoGrid channels = { channels }/>
     </LayoutContent>
+    
 
   }
 
