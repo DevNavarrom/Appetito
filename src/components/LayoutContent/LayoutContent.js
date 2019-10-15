@@ -11,7 +11,8 @@ import GridItem from "../Grid/GridItem";
 import GridContainer from "../Grid/GridContainer";
 import Parallax from '../Parallax/Parallax';
 //import styles from "../../static/jss/layoutContent";
-import styles from './LayoutContentCSS';
+import styles from './LayoutContentCss';
+import HeaderLinks from '../Header/HeaderLinks';
 
 const dashboardRoutes = [];
 
@@ -35,7 +36,8 @@ export default class LayoutContent extends React.Component {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Appetito"
+        brand="Appetit"
+        rightLinks = {<HeaderLinks/>}
         fixed
         changeColorOnScroll={{
           height: 400,

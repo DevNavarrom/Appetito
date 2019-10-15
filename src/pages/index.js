@@ -6,7 +6,7 @@ import Error from './_error';
 //import Layout from '../components/Layout'
 //import ChannelGrid from '../components/ChannelGrid';
 import MainContent from '../components/MainContent';
-import PlatoGrid from '../components/PlatoGrid';
+import PlatoGrid from './PlatoGrid/PlatoGrid';
 import LayoutContent from '../components/LayoutContent/LayoutContent';
 
 export default class extends React.Component {
@@ -14,8 +14,8 @@ export default class extends React.Component {
   static async getInitialProps({ res }) {
     try {
 
-      //let req = await fetch('https://api.audioboom.com/channels/recommended');
-      let req = await fetch('https://localhost:4300/productos');
+      let req = await fetch('https://api.audioboom.com/channels/recommended');
+      //let req = await fetch('https://localhost:4300/productos');
       let { body: productos } = await req.json();
       return { productos, statusCode: 200 };
 

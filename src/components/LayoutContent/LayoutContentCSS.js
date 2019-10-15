@@ -9,20 +9,41 @@ export default css.LayoutContentCSS`
     margin-right: auto;
     margin-left: auto;
     width: 100%;
-    /* @media (min-width: 768px): {
+     /* @media (min-width: 768px) {
         max-width: 720px;
-    }
-    @media (min-width: 576px): {
+    };
+    @media (min-width: 576px) {
         max-width: 540px;
-    }
-    @media (min-width: 992px): {
+    };
+    @media (min-width: 992px){
         max-width: 960px:
-    }
-    @media (min-width: 1200px): {
+    };
+    @media (min-width: 1200px) {
         max-width: 1140px;
-    } */
+    };  */
 /* ...container; */
   }
+
+  @media (min-width: 768px) {
+    .container{
+      max-width: 720px;
+    }
+};
+@media (min-width: 576px) {
+  .container{
+    max-width: 540px;
+  }
+};
+@media (min-width: 992px){
+  .container{
+    max-width: 960px:
+  }
+};
+@media (min-width: 1200px) {
+  .container{
+    max-width: 1140px;
+  }
+};
 
   .title {
     /* ...title; */
