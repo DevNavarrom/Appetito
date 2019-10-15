@@ -13,7 +13,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 export default class PlatoGrid extends React.Component {
 
     render(){
-        const {channels} = this.props;
+        const {productos} = this.props;
 
         return <div>
             <main>
@@ -21,10 +21,10 @@ export default class PlatoGrid extends React.Component {
                 <CssBaseline />
                 <div className="heroContent">
                     <Container maxWidth="sm">
-                        {/* <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Appetito
+                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                            ¡Buen Appetito!
                         </Typography>
-                        <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                        {/* <Typography variant="h5" align="center" color="textSecondary" paragraph>
                             Prepara tu plato como desees desde tu casa, oficina o lugar de trabajo y nosotros te lo llevamos. 
                             Puedes ver algunos ya preparados y pedir el de tu antojo. ¡Buen Appetito!
                         </Typography> */}
@@ -47,7 +47,7 @@ export default class PlatoGrid extends React.Component {
                 <Container className="cardGrid" maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {channels.map(card => (
+                        {productos.map(card => (
                             <Grid item key={card} xs={12} sm={6} md={4}>
                                 <Card className="card">
                                     <CardMedia
@@ -57,10 +57,10 @@ export default class PlatoGrid extends React.Component {
                                     />
                                     <CardContent className="cardContent">
                                         <Typography gutterBottom variant="h5" component="h2">
-                                        {card.title}
+                                        {card.nombre}
                                         </Typography>
                                         <Typography>
-                                            This is a media card. You can use this section to describe the content.
+                                            { card.descripcion }
                                         </Typography>
                                     </CardContent>
                                     <CardActions>

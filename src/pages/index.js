@@ -14,13 +14,14 @@ export default class extends React.Component {
   static async getInitialProps({ res }) {
     try {
 
-      let req = await fetch('https://api.audioboom.com/channels/recommended');
-      let { body: channels } = await req.json();
-      return { channels, statusCode: 200 };
+      //let req = await fetch('https://api.audioboom.com/channels/recommended');
+      let req = await fetch('https://localhost:4300/productos');
+      let { body: productos } = await req.json();
+      return { productos, statusCode: 200 };
 
     } catch (err) {
       res.statusCode = 503;
-      return { channels: null, statusCode: 503}
+      return { productos: null, statusCode: 503}
     }
     
   }
@@ -32,7 +33,7 @@ export default class extends React.Component {
 
   render(){
 
-    const { channels, statusCode } = this.props;
+    const { productos, statusCode } = this.props;
 
     if (statusCode !== 200 ) {
       /* return <div>
@@ -63,7 +64,7 @@ export default class extends React.Component {
       <PlatoGrid channels = { channels }/>
     </MainContent> */
     return <LayoutContent title="Appetito">
-      <PlatoGrid channels = { channels }/>
+      <PlatoGrid productos = { productos }/>
     </LayoutContent>
     
 

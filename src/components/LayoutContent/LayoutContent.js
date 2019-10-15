@@ -1,6 +1,7 @@
 import NProgress from 'nprogress';
 import Router from 'next/router';
 
+import Typography from '@material-ui/core/Typography';
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // core components
@@ -47,11 +48,11 @@ export default class LayoutContent extends React.Component {
         <div className="container">
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className="title">¡Buen Appetito!</h1>
-              <h4>
+              {/* <h1 className="title">¡Buen Appetito!</h1> */}
+              <Typography variant="h4">
               Prepara tu plato como desees desde tu casa, oficina o lugar de trabajo y nosotros te lo llevamos. 
-              Puedes ver algunos ya preparados y pedir el de tu antojo.
-              </h4>
+              Pide a tu antojo.
+              </Typography>
               
             </GridItem>
           </GridContainer>
