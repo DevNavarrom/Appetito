@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export default css.LayoutContentCSS`
+export default css.LayoutContentStyle`
 .container {
     z-index: 12;
     color: #FFFFFF;

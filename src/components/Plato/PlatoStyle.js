@@ -1,15 +1,19 @@
 import css from 'styled-jsx/css';
 
-export default css.PlatoCss`
-    .card: {
+export default css.PlatoStyle`
+    card {
         height: 100%;
         display: flex;
         flex-direction: column;
     }
-    .cardMedia: {
+
+    card-media {
+        height: 140;
         padding-top: 56.25%;
     }
-    .cardContent: {
+
+    card-content {
+        background-color: #2ecc71;
         flex-grow: 1;
     }
 `

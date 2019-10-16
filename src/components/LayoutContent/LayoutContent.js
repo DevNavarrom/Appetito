@@ -11,7 +11,7 @@ import GridItem from "../Grid/GridItem";
 import GridContainer from "../Grid/GridContainer";
 import Parallax from '../Parallax/Parallax';
 //import styles from "../../static/jss/layoutContent";
-import styles from './LayoutContentCss';
+import styles from './LayoutContentStyle';
 import HeaderLinks from '../Header/HeaderLinks';
 
 const dashboardRoutes = [];
@@ -73,7 +73,7 @@ export default class LayoutContent extends React.Component {
         </div>
       </div>
       {/* <Footer /> */}
-      <style jsx LayoutContentCSS>{styles}</style>
+      <style jsx LayoutContentStyle>{styles}</style>
     </div>
         
         
