@@ -24,17 +24,17 @@ export default class Plato extends React.Component {
                 />
                 <CardContent className="card-content">
                     <Typography gutterBottom variant="h5" component="h2">
-                        {plato.title}
+                        {plato.nombre}
                     </Typography>
                     <Typography>
-                        {plato.description}
+                        {plato.descripcion}
                     </Typography>
                 </CardContent>
                 <CardActions>
                     <Button size="small" color="primary">
                         <AddShoppingCartIcon/>
                     </Button>
-                    <Link route="channel" params={{ slug: slug(plato.title), id: plato.id }} >
+                    <Link route="channel" params={{ slug: slug(plato.nombre), id: plato.id }} >
                         <Button size="small" color="primary">
                             <VisibilityIcon/>
                         </Button>
