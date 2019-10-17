@@ -34,7 +34,7 @@ export default class Plato extends React.Component {
                     <Button size="small" color="primary">
                         <AddShoppingCartIcon/>
                     </Button>
-                    <Link route="channel" params={{ slug: slug(plato.nombre), id: plato.id }} >
+                    <Link route="detalles" params={{ slugPlato: slug(plato.nombre), id: plato.id }} >
                         <Button size="small" color="primary">
                             <VisibilityIcon/>
                         </Button>

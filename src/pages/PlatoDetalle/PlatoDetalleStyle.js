@@ -1,141 +1,56 @@
-import css from 'styled-jsx';
-import {
-    roseColor,
-    primaryColor,
-    infoColor,
-    successColor,
-    warningColor,
-    dangerColor
-  } from "assets/jss/material-kit-react.js";
+import css from 'styled-jsx/css';
 
 export default css.PlatoDetalleStyle`
-.root {
-    margin-top: 20px;
-    padding-left: 0;
-    margin-bottom: 0;
-    overflow: visible !important;
-    line-height: 24px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-    position: relative;
-    display: block;
-    color: inherit;
+  .section {
+    padding: 70px 0;
   }
 
-  .flexContainer: {
-    [theme.breakpoints.down("xs")]: {
-      display: "flex",
-      flexWrap: "wrap"
-    }
-  },
-  displayNone: {
-    display: "none !important"
-  },
-  fixed: {
-    overflow: "visible !important"
-  },
-  horizontalDisplay: {
-    display: "block"
-  },
-  pills: {
-    float: "left",
-    position: "relative",
-    display: "block",
-    borderRadius: "30px",
-    minWidth: "100px",
-    textAlign: "center",
-    transition: "all .3s",
-    padding: "10px 15px",
-    color: "#555555",
-    height: "auto",
-    opacity: "1",
-    maxWidth: "100%",
-    margin: "0 5px"
-  },
-  pillsWithIcons: {
-    borderRadius: "4px"
-  },
-  tabIcon: {
-    width: "30px",
-    height: "30px",
-    display: "block",
-    margin: "15px 0 !important",
-    "&, & *": {
-      letterSpacing: "normal !important"
-    }
-  },
-  horizontalPills: {
-    width: "100%",
-    float: "none !important",
-    "& + button": {
-      margin: "10px 0"
-    }
-  },
-  contentWrapper: {
-    marginTop: "20px"
-  },
-  primary: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: primaryColor,
-      boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4)"
-    }
-  },
-  info: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: infoColor,
-      boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4)"
-    }
-  },
-  success: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: successColor,
-      boxShadow:
-        "0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12)"
-    }
-  },
-  warning: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: warningColor,
-      boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4)"
-    }
-  },
-  danger: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: dangerColor,
-      boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4)"
-    }
-  },
-  rose: {
-    "&,&:hover": {
-      color: "#FFFFFF",
-      backgroundColor: roseColor,
-      boxShadow:
-        "0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4)"
-    }
-  },
-  alignCenter: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  tabWrapper: {
-    color: "inherit",
-    position: "relative",
-    fontSize: "12px",
-    lineHeight: "24px",
-    fontWeight: "500",
-    textTransform: "uppercase",
-    "&,& *": {
-      letterSpacing: "normal"
-    }
+  .title {
+    /* ...title,*/
+    color: #3C4858;
+    margin: 1.75rem 0 0.875rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: Roboto Slab, "Times New Roman", serif;
+
+    margin-top: 30px;
+    min-height: 32px;
+    text-decoration: none;
   }
+
+  .container {
+    z-index: 12;
+    color: #FFFFFF;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+     
+    margin-top: 30px;
+    min-height: 32px;
+    text-decoration: none;
+/* ...container; */
+  }
+
+  @media (min-width: 768px) {
+    .container{
+      max-width: 720px;
+    }
+};
+@media (min-width: 576px) {
+  .container{
+    max-width: 540px;
+  }
+};
+@media (min-width: 992px){
+  .container{
+    max-width: 960px:
+  }
+};
+@media (min-width: 1200px) {
+  .container{
+    max-width: 1140px;
+  }
+};
 `
