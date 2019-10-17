@@ -63,7 +63,7 @@ export default css.HeaderLinksStyle`
       background: rgba(200, 200, 200, 0.2);
     }
 
-    .navLink > span:first-child {
+    .navLink span:first-child {
       justify-content: flex-start;
     }
 
