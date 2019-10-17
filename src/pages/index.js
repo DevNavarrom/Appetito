@@ -14,9 +14,9 @@ export default class extends React.Component {
   static async getInitialProps({ res }) {
     try {
 
-      let req = await fetch('https://api.audioboom.com/channels/recommended');
-      //let req = await fetch('https://localhost:4300/productos');
-      let { body: productos } = await req.json();
+      //let req = await fetch('https://api.audioboom.com/channels/recommended');
+      let req = await fetch('http://localhost:4300/platos');
+      let { respuesta: productos } = await req.json();
       return { productos, statusCode: 200 };
 
     } catch (err) {
