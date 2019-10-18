@@ -7,11 +7,35 @@ import styles from './PlatoDetalleStyle';
 import Dashboard from "@material-ui/icons/Dashboard";
 import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
+import ListIngredientes from '../../components/ListIngredientes/ListIngredientes';
 
 export default class PlatoDetalle extends React.Component {
 
+  static async getInitialProps({ query, res }) {
+    try {
+        let idPlato = query.id;
+
+        let [reqPlato] = await Promise.all([
+            fetch(`http://localhost:4300/platos/${idPlato}/detalles`)
+        ]);
+
+        if (reqPlato.status >= 400) {
+            res.statusCode = reqPlato.status;
+            return { plato: null, statusCode: reqPlato.status}
+        }
+
+        let dataPlato = await reqPlato.json();
+        let ingredientes = dataPlato.respuesta.ingredientes;
+
+        return {ingredientes, statusCode: 200}
+    } catch (error) {
+        res.statusCode = 503;
+        return { ingredientes: null, statusCode: 503}
+    }
+}
+
     render(){
-      const {plato} = this.props;
+      const {ingredientes} = this.props;
 
       return <div className="section">
         <div className="container">
@@ -34,29 +58,9 @@ export default class PlatoDetalle extends React.Component {
                       tabButton: "Ingredientes",
                       tabIcon: Dashboard,
                       tabContent: (
-                        <span>
-                          <p>
-                            Collaboratively administrate empowered markets via
-                            plug-and-play networks. Dynamically procrastinate B2C
-                            users after installed base benefits.
-                        </p>
-                          <br />
-                          <p>
-                            Dramatically visualize customer directed convergence
-                            without revolutionary ROI. Collaboratively
-                            administrate empowered markets via plug-and-play
-                            networks. Dynamically procrastinate B2C users after
-                            installed base benefits.
-                        </p>
-                          <br />
-                          <p>
-                            Dramatically visualize customer directed convergence
-                            without revolutionary ROI. Collaboratively
-                            administrate empowered markets via plug-and-play
-                            networks. Dynamically procrastinate B2C users after
-                            installed base benefits.
-                        </p>
-                        </span>
+                        <ListIngredientes items={ingredientes}>
+
+                        </ListIngredientes>
                       )
                     },
                     {
