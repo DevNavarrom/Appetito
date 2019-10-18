@@ -1,4 +1,4 @@
-
+import 'isomorphic-fetch';
 import GridContainer from '../../components/Grid/GridContainer';
 import GridItem from '../../components/Grid/GridItem';
 import NavPills from '../../components/NavPills/NavPills';
@@ -11,38 +11,50 @@ import ListIngredientes from '../../components/ListIngredientes/ListIngredientes
 
 export default class PlatoDetalle extends React.Component {
 
+  /* constructor(props){
+    super(props);
+    this.state = {openPlato: null};
+  } */
+
   static async getInitialProps({ query, res }) {
     try {
         let idPlato = query.id;
-
-        let [reqPlato] = await Promise.all([
-            fetch(`http://localhost:4300/platos/${idPlato}/detalles`)
+        
+        let [reqIngredientes, reqNutrientes] = await Promise.all([
+            fetch(`http://localhost:4300/platos/${idPlato}/ingredientes`),
+            fetch(`http://localhost:4300/platos/${idPlato}/nutrientes`)
         ]);
 
-        if (reqPlato.status >= 400) {
-            res.statusCode = reqPlato.status;
-            return { plato: null, statusCode: reqPlato.status}
+        console.log('Id del plato: '+idPlato);
+
+        if (reqIngredientes.status >= 400) {
+            res.statusCode = reqIngredientes.status;
+            return { ingredientes: null, nutrientes: null, statusCode: reqIngredientes.status}
         }
 
-        let dataPlato = await reqPlato.json();
-        let ingredientes = dataPlato.respuesta.ingredientes;
+        let {respuesta: ingredientes} = await reqIngredientes.json();
+        //let ingredientes = dataIngredientes.respuesta;
+        let {respuesta: nutrientes} = await reqNutrientes.json();
 
-        return {ingredientes, statusCode: 200}
+        return {ingredientes, nutrientes, statusCode: 200}
+
     } catch (error) {
         res.statusCode = 503;
-        return { ingredientes: null, statusCode: 503}
+        return { ingredientes: null, nutrientes: null, statusCode: 503}
     }
 }
 
     render(){
       const {ingredientes} = this.props;
+      
+      //console.log(ingredientes);
 
       return <div className="section">
         <div className="container">
           <div id="navigation-pills">
             <div className="title">
               <h3>
-                <small>Nombre del Plato</small>
+                <small>Nombre Plato</small>
               </h3>
             </div>
             <GridContainer>

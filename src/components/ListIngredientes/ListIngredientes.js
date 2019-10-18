@@ -12,14 +12,17 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
+  itemList:{
+    color: "#090",
+  },
 }));
 
 function Row(props) {
   const { items, style } = props;
-
+  console.log(items);
   return (
-    <ListItem button style={style} key={items}>
-      <ListItemText primary={items.ingrediente} />
+    <ListItem button style={style} key={items.ingrediente}>
+      <ListItemText primary={items.ingrediente} className={classes.itemList} />
     </ListItem>
   );
 }
@@ -31,11 +34,16 @@ Row.propTypes = {
 
 export default function VirtualizedList() {
   const classes = useStyles();
+  //const {items} = this.props;
+  //console.log(items);
 
   return (
     <div className={classes.root}>
-      <FixedSizeList height={400} width={360} itemSize={46} itemCount={200}>
+      <FixedSizeList height={400} width={360} itemSize={46}>
         {Row}
+        {/* <ListItem button style={style} key={items}>
+          <ListItemText primary={items.ingrediente} />
+        </ListItem> */}
       </FixedSizeList>
     </div>
   );
