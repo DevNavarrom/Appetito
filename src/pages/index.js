@@ -5,7 +5,7 @@ import Error from './_error';
 //import ErrorIcon from '@material-ui/icons/Error';
 //import Layout from '../components/Layout'
 //import ChannelGrid from '../components/ChannelGrid';
-import MainContent from '../components/MainContent';
+//import MainContent from '../components/MainContent';
 import PlatoGrid from './PlatoGrid/PlatoGrid';
 import LayoutContent from '../components/LayoutContent/LayoutContent';
 

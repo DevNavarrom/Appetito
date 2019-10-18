@@ -20,7 +20,7 @@ export default css.PlatoDetalleStyle`
 
   .container {
     z-index: 12;
-    color: #FFFFFF;
+    color: #3C4858;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;

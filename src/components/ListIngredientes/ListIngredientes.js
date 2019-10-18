@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { FixedSizeList } from 'react-window';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,38 +13,38 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   itemList:{
-    color: "#090",
+    color: "#0DBE98",
   },
 }));
 
-function Row(props) {
-  const { items, style } = props;
+/* function Row(props) {
+  const { items, style } = props.items;
   console.log(items);
   return (
     <ListItem button style={style} key={items.ingrediente}>
-      <ListItemText primary={items.ingrediente} className={classes.itemList} />
+      <ListItemText primary={items.ingrediente} />
     </ListItem>
   );
 }
 
 Row.propTypes = {
-    items: PropTypes.string.isRequired,
+    items: PropTypes.object.isRequired,
     style: PropTypes.object.isRequired,
-};
+}; */
 
-export default function VirtualizedList() {
+export default function VirtualizedList(props) {
   const classes = useStyles();
-  //const {items} = this.props;
   //console.log(items);
 
   return (
-    <div className={classes.root}>
-      <FixedSizeList height={400} width={360} itemSize={46}>
-        {Row}
-        {/* <ListItem button style={style} key={items}>
-          <ListItemText primary={items.ingrediente} />
-        </ListItem> */}
-      </FixedSizeList>
-    </div>
+    <List component="nav" className={classes.root} aria-label="ingredientes">
+        {props.items.map(value =>{
+            return (
+                <ListItem button key={value.ingrediente}>
+                    <ListItemText primary={value.ingrediente} />
+                </ListItem>
+            );
+        })}
+      </List>
   );
 }
