@@ -21,41 +21,47 @@ export default class PlatoDetalle extends React.Component {
     try {
         let idPlato = query.id;
         
-        let [reqIngredientes, reqNutrientes, reqDetalles] = await Promise.all([
+        /* let [reqIngredientes, reqNutrientes, reqDetalles] = await Promise.all([
             fetch(`http://localhost:4300/platos/${idPlato}/ingredientes`),
             fetch(`http://localhost:4300/platos/${idPlato}/nutrientes`),
             fetch(`http://localhost:4300/platos/${idPlato}/detalles`)
-        ]);
+        ]); */
+        let reqDetalles = await fetch(`http://localhost:4300/platos/${idPlato}/detalles`);
 
-        if (reqDetalles.status >= 400) {
+        /* if (reqDetalles.status >= 400) {
             res.statusCode = reqDetalles.status;
             return { ingredientes: null, nutrientes: null, datos: null, statusCode: reqDetalles.status}
-        }
+        } */
 
-        let {respuesta: ingredientes} = await reqIngredientes.json();
+        if (reqDetalles.status >= 400) {
+          res.statusCode = reqDetalles.status;
+          return { datos: null, statusCode: reqDetalles.status}
+        }
+        /* let {respuesta: ingredientes} = await reqIngredientes.json();
         //let ingredientes = dataIngredientes.respuesta;
-        let {respuesta: nutrientes} = await reqNutrientes.json();
+        let {respuesta: nutrientes} = await reqNutrientes.json(); */
         let {respuesta: datos} = await reqDetalles.json();
 
-        return {ingredientes, nutrientes, datos, statusCode: 200}
+        // return {ingredientes, nutrientes, datos, statusCode: 200}
+        return {datos,statusCode: 200}
 
     } catch (error) {
         res.statusCode = 503;
-        return { ingredientes: null, nutrientes: null, datos: null, statusCode: 503}
+        return { datos: null, statusCode: 503}
     }
 }
 
     render(){
-      const {ingredientes, nutrientes, datos} = this.props;
+      const {datos} = this.props;
       
-      //console.log(ingredientes);
+      console.log(datos.ingredientes);
 
       return <div className="section">
         <div className="container">
           <div id="navigation-pills">
             <div className="title">
               <h3>
-                <small>{datos.nombre}</small>
+                <small>{datos.datos.nombre}</small>
               </h3>
             </div>
             <GridContainer>
@@ -71,14 +77,14 @@ export default class PlatoDetalle extends React.Component {
                       tabButton: "Ingredientes",
                       tabIcon: Dashboard,
                       tabContent: (
-                        <ListIngredientes items={ingredientes}/>
+                        <ListIngredientes items={datos.ingredientes}/>
                       )
                     },
                     {
                       tabButton: "Nutrientes",
                       tabIcon: List,
                       tabContent: (
-                        <ListNutrientes datos={nutrientes}/>
+                        <ListNutrientes datos={datos.nutrientes}/>
                       )
                     }
                   ]}
