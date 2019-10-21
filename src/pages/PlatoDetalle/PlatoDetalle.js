@@ -9,6 +9,8 @@ import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
 import ListIngredientes from '../../components/ListIngredientes/ListIngredientes';
 import ListNutrientes from '../../components/ListNutrientes/ListNutrientes';
+import CarouselImages from '../../components/CarouselImages/CarouselImages';
+import Slider from '../../components/Slider/Slider';
 
 export default class PlatoDetalle extends React.Component {
 
@@ -90,6 +92,13 @@ export default class PlatoDetalle extends React.Component {
                   ]}
                 />
               </GridItem>
+              <GridItem xs={12} sm={12} md={12} lg={6}>
+                <div style={{position: "relative"}}>
+                  <Slider />
+                </div>
+                
+              </GridItem>
+              
             </GridContainer>
           </div>
 
