@@ -6,7 +6,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ItemsCarousel from 'react-items-carousel';
 
 const noOfItems = 7;
-const noOfCards = 2;
+const noOfCards = 1;
 const chevronWidth = 60;
 
 const Wrapper = styled.div`
@@ -45,11 +45,10 @@ export default () => {
         }
         outsideChevron
         chevronWidth={chevronWidth}
-        
       >
-        <div data-src="https://weneedfun.com/wp-content/uploads/2015/10/Delicious-Food-Photos-20.jpg" />
-        <div data-src="https://weneedfun.com/wp-content/uploads/2015/10/Delicious-Food-Photos-20.jpg" />
-        <div data-src="https://weneedfun.com/wp-content/uploads/2015/10/Delicious-Food-Photos-20.jpg" />
+        <img style={{height: "100%", width: "100%", objectFit: "cover"}} src="https://www.sbs.com.au/food/sites/sbs.com.au.food/files/Dhal.jpg" />
+        <img style={{height: "100%", width: "100%", objectFit: "cover"}} src="https://www.sbs.com.au/food/sites/sbs.com.au.food/files/stir-fried-shredded-roti-kottu-roti.jpg" />
+        <img style={{height: "100%", width: "100%", objectFit: "cover"}} src="https://felixwong.com/gallery/images/f/food_in_china14-010.jpg" />
       </ItemsCarousel>
     </Wrapper>
   );

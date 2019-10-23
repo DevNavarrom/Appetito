@@ -63,7 +63,7 @@ export default class PlatoDetalle extends React.Component {
           <div id="navigation-pills">
             <div className="title">
               <h3>
-                <small>{datos.datos.nombre}</small>
+                {datos.datos.nombre}
               </h3>
             </div>
             <GridContainer>
