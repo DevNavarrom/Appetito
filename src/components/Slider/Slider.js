@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../CustomButtons/Button';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ItemsCarousel from 'react-items-carousel';
 
 const noOfItems = 7;
@@ -40,7 +41,7 @@ export default () => {
                 target="_blank"
                 className="navLink"
             >
-                <ArrowBackIosIcon />
+                <ChevronLeftIcon />
             </Button>
         }
         outsideChevron

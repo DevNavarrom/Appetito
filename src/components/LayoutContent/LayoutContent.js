@@ -53,7 +53,7 @@ export default class LayoutContent extends React.Component {
               {/* <h1 className="title">¡Buen Appetito!</h1> */}
               <Typography variant="h4">
               Prepara tu plato como desees desde tu casa, oficina o lugar de trabajo y nosotros te lo llevamos. 
-              Pide a tu antojo.
+              Hazlo a tu antojo.
               </Typography>
               
             </GridItem>
