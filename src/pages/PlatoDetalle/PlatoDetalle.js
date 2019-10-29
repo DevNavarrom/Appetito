@@ -1,4 +1,5 @@
 import 'isomorphic-fetch';
+import Router from 'next/router';
 import GridContainer from '../../components/Grid/GridContainer';
 import GridItem from '../../components/Grid/GridItem';
 import NavPills from '../../components/NavPills/NavPills';
@@ -6,14 +7,16 @@ import styles from './PlatoDetalleStyle';
 //import './PlatoDetalle.css';
 // @material-ui/icons
 import Dashboard from "@material-ui/icons/Dashboard";
-import Schedule from "@material-ui/icons/Schedule";
 import List from "@material-ui/icons/List";
 import ListIngredientes from '../../components/ListIngredientes/ListIngredientes';
 import ListNutrientes from '../../components/ListNutrientes/ListNutrientes';
-import CarouselImages from '../../components/CarouselImages/CarouselImages';
 import Slider from '../../components/Slider/Slider';
 import Typography from '@material-ui/core/Typography';
-import { height } from '@material-ui/system';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 export default class PlatoDetalle extends React.Component {
 
@@ -58,17 +61,26 @@ export default class PlatoDetalle extends React.Component {
 
     render(){
       const {datos} = this.props;
-      
-      console.log(datos.ingredientes);
 
       return <div className="section">
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton onClick={() => Router.back()} edge="start" style={{ marginRight: "16px" }} color="inherit" aria-label="menu">
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography variant="h6" style={{ flexGrow: "1" }}>
+              {datos.datos.nombre}
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
         <div className="container">
           <div id="navigation-pills">
-            <div className="title">
+            {/* <div className="title">
               <Typography variant="h5" gutterBottom>
                 {datos.datos.nombre}
               </Typography>
-            </div>
+            </div> */}
             <GridContainer container spacing={3}>
 
               <GridItem xs={12} sm={12} md={12} lg={6}>

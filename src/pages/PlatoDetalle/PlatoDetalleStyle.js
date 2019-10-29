@@ -2,7 +2,9 @@ import css from 'styled-jsx/css';
 
 export default css.PlatoDetalleStyle`
   .section {
-    padding: 70px 0;
+    /*padding: 70px 0;*/
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
   .title {
@@ -30,27 +32,30 @@ export default css.PlatoDetalleStyle`
     margin-top: 30px;
     min-height: 32px;
     text-decoration: none;
-/* ...container; */
+    /* ...container; */
   }
 
   @media (min-width: 768px) {
     .container{
       max-width: 720px;
     }
-}
-@media (min-width: 576px) {
-  .container{
-    max-width: 540px;
   }
-}
-@media (min-width: 992px){
-  .container{
-    max-width: 960px;
+
+  @media (min-width: 576px) {
+    .container{
+      max-width: 540px;
+    }
   }
-}
-@media (min-width: 1200px) {
-  .container{
-    max-width: 1140px;
+
+  @media (min-width: 992px){
+    .container{
+      max-width: 960px;
+    }
   }
-}
+
+  @media (min-width: 1200px) {
+    .container{
+      max-width: 1140px;
+    }
+  }
 `

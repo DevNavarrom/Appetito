@@ -5,10 +5,10 @@ export default css.PlatoGridCss`
         background-color: #FFFFFF;
         padding: 64px 0px 48px;
     }
-    .heroButtons: {
+    .heroButtons {
         margin-top: 32px;
     }
-    .cardGrid: {
+    .cardGrid {
         padding-top: 32px;
         padding-bottom: 32px;
     }
