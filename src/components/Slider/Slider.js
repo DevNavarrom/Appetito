@@ -8,7 +8,7 @@ import ItemsCarousel from 'react-items-carousel';
 
 const noOfItems = 7;
 const noOfCards = 1;
-const chevronWidth = 60;
+const chevronWidth = 32;
 
 const Wrapper = styled.div`
   padding: 0 20px;

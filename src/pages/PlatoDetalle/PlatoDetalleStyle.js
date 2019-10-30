@@ -58,4 +58,11 @@ export default css.PlatoDetalleStyle`
       max-width: 1140px;
     }
   }
+
+  .cont-appbar {
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 100px;
+  }
 `

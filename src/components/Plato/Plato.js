@@ -10,6 +10,24 @@ import styles from './PlatoStyle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RoomServiceIcon from '@material-ui/icons/RoomService';
 import VisibilityIcon from '@material-ui/icons/Visibility';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const muiTheme = createMuiTheme({
+    palette: {
+      primary: {
+          main: '#0DBE98',
+          contrastText: '#ffffff',
+      },
+      secondary: {
+        main: '#0DBE98',
+        contrastText: '#f83371',
+      },
+      
+    },
+    appBar: {
+      height: 60,
+    },
+  });
 
 export default class Plato extends React.Component {
 
@@ -32,16 +50,18 @@ export default class Plato extends React.Component {
                         {plato.descripcion}
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small" color="primary">
-                        <RoomServiceIcon/>
-                    </Button>
-                    <Link route="detalles" params={{ slugPlato: slug(plato.nombre), id: plato.id }} >
+                <MuiThemeProvider theme={muiTheme}>
+                    <CardActions>
                         <Button size="small" color="primary">
-                            <VisibilityIcon/>
+                            <RoomServiceIcon />
                         </Button>
-                    </Link>
-                </CardActions>
+                        <Link route="detalles" params={{ slugPlato: slug(plato.nombre), id: plato.id }} >
+                            <Button size="small" color="primary">
+                                <VisibilityIcon />
+                            </Button>
+                        </Link>
+                    </CardActions>
+                </MuiThemeProvider>
             </Card>
             <style jsx PlatoStyle>{styles}</style>
         </div>

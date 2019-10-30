@@ -17,6 +17,24 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const muiTheme = createMuiTheme({
+  palette: {
+    primary: {
+        main: '#0DBE98',
+        contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#0DBE98',
+      contrastText: '#f83371',
+    },
+    
+  },
+  appBar: {
+    height: 60,
+  },
+});
 
 export default class PlatoDetalle extends React.Component {
 
@@ -62,26 +80,25 @@ export default class PlatoDetalle extends React.Component {
     render(){
       const {datos} = this.props;
 
-      return <div className="section">
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton onClick={() => Router.back()} edge="start" style={{ marginRight: "16px" }} color="inherit" aria-label="menu">
-              <ArrowBackIcon />
-            </IconButton>
-            <Typography variant="h6" style={{ flexGrow: "1" }}>
-              {datos.datos.nombre}
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-        <div className="container">
-          <div id="navigation-pills">
-            {/* <div className="title">
-              <Typography variant="h5" gutterBottom>
+      return <div >
+        <MuiThemeProvider theme={muiTheme}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton onClick={() => Router.back()} edge="start" style={{ marginRight: "16px" }} color="inherit" aria-label="menu">
+                <ArrowBackIcon />
+              </IconButton>
+              <Typography variant="h6" style={{ flexGrow: "1" }}>
                 {datos.datos.nombre}
               </Typography>
-            </div> */}
-            <GridContainer container spacing={3}>
+              <Button color="inherit">Login</Button>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
+        
+        <div className="container">
+          <div id="navigation-pills">
+            
+            <GridContainer spacing={3}>
 
               <GridItem xs={12} sm={12} md={12} lg={6}>
                 <NavPills
