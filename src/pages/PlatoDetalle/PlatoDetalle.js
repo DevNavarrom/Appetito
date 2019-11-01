@@ -18,6 +18,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { Paper, Grid } from '@material-ui/core';
 
 const muiTheme = createMuiTheme({
   palette: {
@@ -80,7 +81,7 @@ export default class PlatoDetalle extends React.Component {
     render(){
       const {datos} = this.props;
 
-      return <div >
+      return <div style={{margin: "-10px", flex: 1, justifyContent: "center", alignItems: "center"}}>
         <MuiThemeProvider theme={muiTheme}>
           <AppBar position="static">
             <Toolbar>
@@ -95,12 +96,12 @@ export default class PlatoDetalle extends React.Component {
           </AppBar>
         </MuiThemeProvider>
         
-        <div className="container">
-          <div id="navigation-pills">
+        <Paper style={{ width: "70%", height: "40%", margin: "10px", padding: "10px"}} >
+          {/* <div id="navigation-pills" > */}
             
-            <GridContainer spacing={3}>
+            <Grid container>
 
-              <GridItem xs={12} sm={12} md={12} lg={6}>
+              <Grid item xs={12} sm={12} md={12} lg={6}>
                 <NavPills
                   color="danger"
                   horizontal={{
@@ -124,18 +125,18 @@ export default class PlatoDetalle extends React.Component {
                     }
                   ]}
                 />
-              </GridItem>
+              </Grid>
 
-              <GridItem xs={12} sm={12} md={12} lg={6}>
+              <Grid item xs={12} sm={12} md={12} lg={6}>
                 <div style={{ position: "relative", }}>
                     <Slider />
                 </div>
-              </GridItem>
+              </Grid>
 
-            </GridContainer>
-          </div>
+            </Grid>
+          {/* </div> */}
 
-        </div>
+        </Paper>
         <style jsx PlatoDetalleStyle>{ styles }</style>
       </div>
     }

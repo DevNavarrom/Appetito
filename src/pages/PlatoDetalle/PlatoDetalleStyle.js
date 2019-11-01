@@ -65,4 +65,11 @@ export default css.PlatoDetalleStyle`
 
     padding-bottom: 100px;
   }
+
+  .cont-paper {
+    margin: 10px;
+    flex: 1;
+    justify-content: center; 
+    align-items: center;
+  }
 `

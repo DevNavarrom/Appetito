@@ -36,7 +36,7 @@ export default css.LayoutContentStyle`
 };
 @media (min-width: 992px){
   .container{
-    max-width: 960px:
+    max-width: 960px;
   }
 };
 @media (min-width: 1200px) {
